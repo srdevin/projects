@@ -67,7 +67,7 @@ object TableStatsSinglePathMain {
     var sc = new SparkContext("local", "test", sparkConfig)
     val sqlContext = new org.apache.spark.sql.SQLContext(sc)
 
-    val df = sqlContext.read.format("com.databricks.spark.csv").option("header", "true").option("escape","\"").option("inferSchema", "true").option("treatEmptyValuesAsNulls","true").load("/media/sf_VM_Shared/loans1.csv")
+    val df = sqlContext.read.format("com.databricks.spark.csv").option("header", "true").option("escape","\"").option("inferSchema", "true").option("treatEmptyValuesAsNulls","true").load("/mnt/hgfs/Shared/def.csv")
        val firstPassStats = getFirstPassStat( df)
        val outJson = toJson(firstPassStats)
              
